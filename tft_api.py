@@ -1,7 +1,9 @@
 #~~~~~Libraries~~~~~
 import requests 
 import json
+import random
 import matplotlib.pyplot as plt
+from pywaffle import Waffle
 #~~~~~~~~~~~~~~~~~~~
 
 #~~~~~Global Variable~~~~~
@@ -199,7 +201,29 @@ for j in range(0, len(match_ids)):
     
     axis.append(j)
 
-plt.plot(axis, percent_played)
+colours = []
+
+#Generate a bunch of random colours
+for i in range(0, len(end_board)):
+    new_colour = random.randint(int('100000',16) , int('FFFFFF', 16))
+    colours.append('#' + hex(new_colour)[2:])
+
+fig = plt.figure(
+    FigureClass = Waffle,
+    rows = 5,
+    columns = len(end_board),
+    values = end_board,
+    colors = colours,
+    icons = 'star',
+    font_size = 12,
+)
+fig.set_facecolor('#EEEEEE')
+plt.show()
+
+pie = plt.pie(
+    [str(key) for key in end_board.values()],
+    labels = [str(key) for key in end_board],
+)
 plt.show()
 
 print(game_length)
