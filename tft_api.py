@@ -226,6 +226,9 @@ pie = plt.pie(
 )
 plt.show()
 
+plt.plot(axis, percent_played)
+plt.show()
+
 print(game_length)
 print(time_eliminated)
 print(level)
