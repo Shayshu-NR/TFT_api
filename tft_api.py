@@ -226,13 +226,14 @@ pie = plt.pie(
 )
 plt.show()
 
-plt.plot(axis, percent_played)
+plt.plot(axis, placement)
 plt.show()
 
 print(game_length)
 print(time_eliminated)
 print(level)
 print(total_player_damage)
+print(placement)
 print(end_board)
 #~~~~~ ~~~~~
 
